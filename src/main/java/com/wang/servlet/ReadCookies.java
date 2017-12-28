@@ -23,7 +23,7 @@ public class ReadCookies extends HttpServlet{
         // 设置响应内容类型
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
-        String title = "Delete Cookie Example";
+        String title = "Delete and Read Cookie Example";
         String docType = "<!DOCTYPE html>\n";
         out.println(docType +
                 "<html>\n" +

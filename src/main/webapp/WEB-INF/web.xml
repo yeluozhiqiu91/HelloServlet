@@ -77,12 +77,21 @@
         <servlet-name>ReadCookies</servlet-name>
         <servlet-class>com.wang.servlet.ReadCookies</servlet-class>
     </servlet>
+    <!--跟踪session-->
+    <servlet>
+        <servlet-name>SessionTrack</servlet-name>
+        <servlet-class>com.wang.servlet.SessionTrack</servlet-class>
+    </servlet>
     <!-- servlet 映射 -->
 
     <!--servlet end-->
 
     <!--以下是servletmapping-->
     <!-- servlet-mapping start-->
+    <servlet-mapping>
+        <servlet-name>SessionTrack</servlet-name>
+        <url-pattern>/SessionTrack</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ReadCookies</servlet-name>
         <url-pattern>/ReadCookies</url-pattern>
