@@ -4,7 +4,7 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <!--拦截器-->
+  <!--日志过滤器-->
   <filter>
     <filter-name>LogFilter</filter-name>
     <filter-class>com.wang.filter.LogFilter</filter-class>
@@ -14,8 +14,18 @@
       <param-value>我的教程教程</param-value>
     </init-param>
   </filter>
+    <!--身份过滤器-->
+    <filter>
+        <filter-name>AuthenFilter</filter-name>
+        <filter-class>com.wang.filter.AuthenFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>LogFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
   <filter-mapping>
-    <filter-name>LogFilter</filter-name>
+    <filter-name>AuthenFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   <servlet>
