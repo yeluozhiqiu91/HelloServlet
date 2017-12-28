@@ -1,19 +1,20 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  <!--日志过滤器-->
-  <filter>
-    <filter-name>LogFilter</filter-name>
-    <filter-class>com.wang.filter.LogFilter</filter-class>
-    <!--初始化参数-->
-    <init-param>
-      <param-name>Site</param-name>
-      <param-value>我的教程教程</param-value>
-    </init-param>
-  </filter>
+    <display-name>Archetype Created Web Application</display-name>
+    <!--filter start-->
+    <!--日志过滤器-->
+    <filter>
+        <filter-name>LogFilter</filter-name>
+        <filter-class>com.wang.filter.LogFilter</filter-class>
+        <!--初始化参数-->
+        <init-param>
+            <param-name>Site</param-name>
+            <param-value>我的教程教程</param-value>
+        </init-param>
+    </filter>
     <!--身份过滤器-->
     <filter>
         <filter-name>AuthenFilter</filter-name>
@@ -24,39 +25,62 @@
         <filter-name>LogFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-  <filter-mapping>
-    <filter-name>AuthenFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
-  <servlet>
-    <servlet-name>HelloServlet</servlet-name>
-    <servlet-class>com.wang.servlet.HelloServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>HelloFormUrl</servlet-name>
-    <servlet-class>com.wang.servlet.HelloFormUrl</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>HelloForm</servlet-name>
-    <servlet-class>com.wang.servlet.HelloForm</servlet-class>
-  </servlet>
+    <filter-mapping>
+        <filter-name>AuthenFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!--fileter end-->
+
+    <!--servlet start-->
+    <!--入门servlet-->
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>com.wang.servlet.HelloServlet</servlet-class>
+    </servlet>
+    <!--地址带参数servlet-->
+    <servlet>
+        <servlet-name>HelloFormUrl</servlet-name>
+        <servlet-class>com.wang.servlet.HelloFormUrl</servlet-class>
+    </servlet>
+    <!--表单提交servlet-->
+    <servlet>
+        <servlet-name>HelloForm</servlet-name>
+        <servlet-class>com.wang.servlet.HelloForm</servlet-class>
+    </servlet>
+    <!--header相关servlet-->
     <servlet>
         <servlet-name>DisplayHeader</servlet-name>
         <servlet-class>com.wang.servlet.DisplayHeader</servlet-class>
     </servlet>
+    <!--自动刷新servlet-->
     <servlet>
         <servlet-name>Refresh</servlet-name>
         <servlet-class>com.wang.servlet.Refresh</servlet-class>
     </servlet>
-  <servlet>
-    <servlet-name>ShowError</servlet-name>
-    <servlet-class>com.wang.servlet.ShowError</servlet-class>
-  </servlet>
+    <!--显示错误代码servlet-->
+    <servlet>
+        <servlet-name>ShowError</servlet-name>
+        <servlet-class>com.wang.servlet.ShowError</servlet-class>
+    </servlet>
+    <!--异常处理-->
+    <servlet>
+        <servlet-name>ErrorHandler</servlet-name>
+        <servlet-class>com.wang.servlet.ErrorHandler</servlet-class>
+    </servlet>
+    <!-- servlet 映射 -->
 
-  <servlet-mapping>
-    <servlet-name>ShowError</servlet-name>
-    <url-pattern>/ShowError</url-pattern>
-  </servlet-mapping>
+    <!--servlet end-->
+
+    <!--以下是servletmapping-->
+    <!-- servlet-mapping start-->
+    <servlet-mapping>
+        <servlet-name>ErrorHandler</servlet-name>
+        <url-pattern>/ErrorHandler</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowError</servlet-name>
+        <url-pattern>/ShowError</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Refresh</servlet-name>
         <url-pattern>/Refresh</url-pattern>
@@ -65,16 +89,44 @@
         <servlet-name>DisplayHeader</servlet-name>
         <url-pattern>/DisplayHeader</url-pattern>
     </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>HelloForm</servlet-name>
-    <url-pattern>/HelloForm</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>HelloFormUrl</servlet-name>
-    <url-pattern>/HelloFormUrl</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>HelloServlet</servlet-name>
-    <url-pattern>/Hello</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloForm</servlet-name>
+        <url-pattern>/HelloForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloFormUrl</servlet-name>
+        <url-pattern>/HelloFormUrl</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/Hello</url-pattern>
+    </servlet-mapping>
+    <!--servlet-mapping end-->
+    <!-- error-code 相关的错误页面 -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+
+    <!-- exception-type 相关的错误页面 -->
+    <error-page>
+        <exception-type>
+            javax.servlet.ServletException
+        </exception-type >
+        <location>/ErrorHandler</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>java.io.IOException</exception-type >
+        <location>/ErrorHandler</location>
+    </error-page>
+    <!--如果是想对所有异常进行处理就用下面的配置-->
+    <!--<error-page>
+        <exception-type>java.lang.Throwable</exception-type >
+        <location>/ErrorHandler</location>
+    </error-page>-->
 </web-app>
