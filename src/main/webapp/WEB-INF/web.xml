@@ -9,12 +9,20 @@
     <servlet-class>com.wang.servlet.HelloServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>HelloFormUrl</servlet-name>
+    <servlet-class>com.wang.servlet.HelloFormUrl</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>HelloForm</servlet-name>
     <servlet-class>com.wang.servlet.HelloForm</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HelloForm</servlet-name>
     <url-pattern>/HelloForm</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HelloFormUrl</servlet-name>
+    <url-pattern>/HelloFormUrl</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>
