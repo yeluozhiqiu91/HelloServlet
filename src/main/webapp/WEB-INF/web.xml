@@ -4,6 +4,20 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <!--拦截器-->
+  <filter>
+    <filter-name>LogFilter</filter-name>
+    <filter-class>com.wang.filter.LogFilter</filter-class>
+    <!--初始化参数-->
+    <init-param>
+      <param-name>Site</param-name>
+      <param-value>我的教程教程</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>LogFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
     <servlet-class>com.wang.servlet.HelloServlet</servlet-class>
