@@ -24,7 +24,15 @@
         <servlet-name>Refresh</servlet-name>
         <servlet-class>com.wang.servlet.Refresh</servlet-class>
     </servlet>
+  <servlet>
+    <servlet-name>ShowError</servlet-name>
+    <servlet-class>com.wang.servlet.ShowError</servlet-class>
+  </servlet>
 
+  <servlet-mapping>
+    <servlet-name>ShowError</servlet-name>
+    <url-pattern>/ShowError</url-pattern>
+  </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Refresh</servlet-name>
         <url-pattern>/Refresh</url-pattern>
