@@ -11,6 +11,9 @@ import java.io.PrintWriter;
  * Created by wang on 2017/12/27.
  * 演示表单数据
  * 在浏览器输入：http://localhost:8080/get.jsp
+ * 使用get提交之后浏览器地址自动会把参数加到后面，像这样
+ * http://localhost:8080/HelloForm?name=wang&url=www.wke.com
+ * 而用post提交后不会，像这样：http://localhost:8080/HelloForm
  * 填写表单后提交
  */
 public class HelloForm extends HttpServlet{

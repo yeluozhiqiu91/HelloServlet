@@ -16,6 +16,14 @@
     <servlet-name>HelloForm</servlet-name>
     <servlet-class>com.wang.servlet.HelloForm</servlet-class>
   </servlet>
+    <servlet>
+        <servlet-name>DisplayHeader</servlet-name>
+        <servlet-class>com.wang.servlet.DisplayHeader</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayHeader</servlet-name>
+        <url-pattern>/DisplayHeader</url-pattern>
+    </servlet-mapping>
   <servlet-mapping>
     <servlet-name>HelloForm</servlet-name>
     <url-pattern>/HelloForm</url-pattern>
