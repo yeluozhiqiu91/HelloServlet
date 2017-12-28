@@ -20,6 +20,15 @@
         <servlet-name>DisplayHeader</servlet-name>
         <servlet-class>com.wang.servlet.DisplayHeader</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Refresh</servlet-name>
+        <servlet-class>com.wang.servlet.Refresh</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Refresh</servlet-name>
+        <url-pattern>/Refresh</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DisplayHeader</servlet-name>
         <url-pattern>/DisplayHeader</url-pattern>
