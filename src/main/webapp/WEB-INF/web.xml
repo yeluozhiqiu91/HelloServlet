@@ -82,12 +82,21 @@
         <servlet-name>SessionTrack</servlet-name>
         <servlet-class>com.wang.servlet.SessionTrack</servlet-class>
     </servlet>
+    <!--上传文件-->
+    <servlet>
+        <servlet-name>UploadFile</servlet-name>
+        <servlet-class>com.wang.servlet.UploadServlet</servlet-class>
+    </servlet>
     <!-- servlet 映射 -->
 
     <!--servlet end-->
 
     <!--以下是servletmapping-->
     <!-- servlet-mapping start-->
+    <servlet-mapping>
+        <servlet-name>UploadFile</servlet-name>
+        <url-pattern>/UploadFile</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SessionTrack</servlet-name>
         <url-pattern>/SessionTrack</url-pattern>
